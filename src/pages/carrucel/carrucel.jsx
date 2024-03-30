@@ -7,21 +7,21 @@ const Carru = () => {
   const images = [
 
     { 
-      original: 'https://i.postimg.cc/c1p4LDr7/3.jpg'
+      original: 'https://i.postimg.cc/Qtt7YCcq/1.jpg'
     },
     {
-      original: 'https://i.postimg.cc/3ND6qFhY/4.jpg'
+      original: 'https://i.postimg.cc/wMRmHrfy/9.jpg'
     },
-    {original: 'https://i.postimg.cc/hhWwRQ4x/6.jpg'
+    {original: 'https://i.postimg.cc/GpzYjGT2/2.jpg'
     },
-    {original: 'https://i.postimg.cc/SQ2xq0NN/7.jpg'
+    {original: 'https://i.postimg.cc/JhRZJPnv/10.jpg'
   },
    
   ]
 
   return (
-    <div className='carru_gamer2'>
-      <ImageGallery clasname="carrucel_gamer2"
+    <div className='carru'>
+      <ImageGallery clasname="carrucel"
       items={images}
 
       //muestra el boton de play
@@ -37,15 +37,10 @@ const Carru = () => {
       autoPlay={true}
 
       //duracion de cada imagen
-      slideInterval={5000}
+      slideInterval={4000}
 
       //duracion al pasar de una imagen a otra
-      slideDuration={2000}
-
-      
-
-      
-        
+      slideDuration={1000}
 
       
       />

@@ -3,6 +3,7 @@ import { getProductsService } from "./services/products_services";
 import { Link } from "react-router-dom";
 import HeaderComputo from "./pages/header/header"
 import Carru from "./pages/carrucel/carrucel";
+import Slider from "./pages/carrucel/slider";
 
 export const App = () => {
 
@@ -53,6 +54,8 @@ export const App = () => {
     <div>
       <HeaderComputo/>
       <Carru/>
+    
+      
 
       <div className="flex justify-between">
         <h1>Productos</h1>
@@ -92,6 +95,8 @@ export const App = () => {
           <p>No hay productos</p>
         )}
       </div>
+      <Slider/>
     </div>
+    
   );
 };
