@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { postLoginService } from "../../services/auth_services";
 import { useNavigate } from "react-router-dom";
+import './login.css'
+
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -32,43 +34,21 @@ export const Login = () => {
   };
 
   return (
-    <div>
-      <h1>Iniciar sesión</h1>
-      <form
-        onSubmit={handleSubmit}
-        className="max-w-96 rounded-xl border p-5 flex flex-col gap-5"
-      >
-        <div className="flex flex-col gap-2">
-          <label htmlFor="password" className="w-full">
-            Usuario
-          </label>
-          <input
-            id="username"
-            type="text"
-            name="username"
-            onChange={handleInputChange}
-            className="w-full"
-          />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label htmlFor="password" className="w-full">
-            Contraseña
-          </label>
-          <input
-            id="password"
-            type="password"
-            name="password"
-            onChange={handleInputChange}
-            className="w-full"
-          />
-        </div>
-        <button
-          type="submit"
-          className="px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm text-gray-900"
-        >
-          Ingresar
-        </button>
-      </form>
-    </div>
+    <div className="login-box">
+  <div className="contenedor1">
+    <img className="logo_deluxer" src= 'https://i.postimg.cc/4yPDpmkf/Deluxecomputer2.png' alt="" />
+  </div>
+
+  <form onSubmit={handleSubmit} className="login-form">
+    <label htmlFor="username"></label>
+    <input id="username" type="text" name="username" placeholder="  &#128100; │ USERNAME" onChange={handleInputChange} className="input" />
+
+    <label htmlFor="password"></label>
+    <input id="password" type="password" name="password" placeholder="  &#x1F512; │ PASSWORD" onChange={handleInputChange} className="input" />
+
+    <input className="button submit-button" type="submit" value="LOGIN" />
+    <a href="">PASSWORD │ REGISTER</a>
+  </form>
+</div>
   );
 };
