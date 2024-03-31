@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import HeaderComputo from "./pages/header/header"
 import Carru from "./pages/carrucel/carrucel";
 import Slider from "./pages/carrucel/slider";
+import './index.css'
 
 export const App = () => {
 
@@ -66,27 +67,55 @@ export const App = () => {
           Carrito de compras
         </Link>
       </div>
-      <div className="flex gap-5">
+      <div className="card_contenedor">
         {products.length > 0 ? (
           products.map((product) => (
-            <div key={product.id} className="border rounded-xl p-5 max-w-80">
-              <picture className="rounded-xl overflow-hidden aspect-video block relative">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full"
-                />
+            <div key={product.id} className=" bg-white border-2 rounded-md ">
+              <picture className="overlay hover:translate-y-2.5 hover:transition-all hover:rounded-md text-center">
+              <img className="card_img" src={product.image} alt="" />
+
+            <h2 className="card_name">{product.name} </h2>
               </picture>
               <div className="pt-5">
                 <h2>{product.name}</h2>
-                <p>{product.description}</p>
-                <p>{product.price}</p>
+                <p>{}</p>
+                <div className="contenedor_precio_logo  ">
+                    <img
+                      className="card_logo_bbva"
+                      src="https://i.postimg.cc/1tzLVnM4/Post-de-instagram-de-venta-de-tecnolog-a-morado-con-azul-11.png"
+                      alt=""
+                    />
+                    <p className="card_info text-[#0039a6] font-bold ">
+                      {product.price}
+                    </p>
+                  </div>
+                  <div className="contenedor_precio_logo ">
+                    <del className=" text-slate-400 font-bold">
+                      {" "}
+                      {product.price}{" "}
+                    </del>
+                    <p className="card_info font-bold ">{product.price*1.2}</p>
+                  </div>
+                  <div className="contenedor_precio_logo ">
+                    <img
+                      className="card_logo_bbva"
+                      src="https://i.postimg.cc/Y9y6DD9b/11.png"
+                      alt=""
+                    />
+
+                    <p className="card_info text-[#3bc667] font-bold ">
+                      {product.price}
+                    </p>
+                  </div>
                 <button
                   type="button"
                   onClick={() => handleAddToCart(product)}
-                  className="px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm text-gray-900"
+                  className="boton_compra flex items-center"
                 >
-                  Añadir carrito
+                 <p className="text-white font-bold" target="_blank" href="">
+                      Agregar
+                      <i class="bi bi-cart4"></i>
+                    </p>
                 </button>
               </div>
             </div>

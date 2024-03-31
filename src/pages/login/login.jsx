@@ -34,6 +34,7 @@ export const Login = () => {
   };
 
   return (
+  <div className="contenedor_login">
     <div className="login-box">
   <div className="contenedor1">
     <img className="logo_deluxer" src= 'https://i.postimg.cc/4yPDpmkf/Deluxecomputer2.png' alt="" />
@@ -49,6 +50,7 @@ export const Login = () => {
     <input className="button submit-button" type="submit" value="LOGIN" />
     <a href="">PASSWORD │ REGISTER</a>
   </form>
+</div>
 </div>
   );
 };

@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=Orbitron:wght@600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 .cont {
   display: flex;
   flex-direction: column;
@@ -166,4 +172,429 @@
     padding: 1px 1px;
     font-size: 14px;
   }
+}
+
+
+/* el css de index */
+
+@layer utilities {
+  .clip-circle-0 {
+    clip-path: circle(0% at top right);
+  }
+  .clip-circle-full{
+    clip-path: circle(150% at top right)
+  }
+}
+
+
+
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* inicio cesar */
+.sliderC-container{
+  margin: 0 ;
+  margin-top: 50px;
+  /* border: solid red; */
+
+}
+.containerZonaSaltos{
+  display: flex;
+
+  cursor:grab;
+  width: 100%;
+  column-gap: 15px;
+  /* border: solid blue; */
+}
+
+.sub-zonaSaltos div img{
+  width: 100%;
+  height: 300px;
+  cursor: grab;
+  /* pointer-events: none; */
+  /* border: solid rgb(14, 14, 196); */
+}
+/* .animated{
+  width: 150px;
+  border: solid red;
+} */
+
+.sub-zonaSaltos img:hover{
+  border:solid 7px rgb(255, 7, 230);
+  animation: border-move 5s infinite;
+  width: 110%;
+
+} 
+
+@keyframes border-move {
+  0% { border-color: rgb(2, 253, 245); }
+  25% { border-color: rgb(81, 250, 8); }
+  50% { border-color: rgb(222, 12, 241); }
+  75% { border-color: rgb(8, 249, 233); }
+  100% { border-color: rgb(237, 67, 5); }
+  100% { border-color: rgb(41, 11, 239); }
+}
+
+
+
+/* --------texto---------  */
+.sliderC-container p {
+  color:rgb(22, 230, 230);
+  font-size: 20px;
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding: 10px 0px 10px 0px;
+  /* border: solid red; */
+}
+
+.sliderC-container p:hover{
+  color: greenyellow;
+  font-size: 25px;
+}
+
+/* termino de cesar */
+
+
+
+body{
+  /* background-color: rgb(232, 239, 237); */
+  font-family: 'Rubik,-apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif';
+  /* background: linear-gradient(134deg,#033c70,#042f70 46%,#260c5e); */
+ /* background-color: #0c163b; */
+}
+/* menu hamburguesa */
+.hamburguer{
+  margin-right: 10px;
+  margin-top: 40px;
+  margin-left: 80px;
+
+  /* termino de menu hamburguesa del header */
+}
+/* estilo en modo responsive aqui se le cambio el color de fondo las separaciones , el tamaño de la letra  */
+@media (400px <= width <= 800px) {
+  .headersm{
+    color: black;
+    font-weight: bold;
+    font-size: 30px;
+    background-color: rgb(31, 97, 196);
+    background-color: rgb(16, 64, 136);
+    gap: 50px;
+   
+   
+
+  }
+  .heradersm:hover{
+    font-size: 40px;
+    font-weight: lighter;
+    transition: 0.5s;
+   
+  } 
+}
+
+@media (400px <= width <= 800px) {
+  .header_inicio_sesion{
+    color: black;
+    font-weight: bold;
+   
+    width: 55%;
+   
+   
+
+  }
+  .header_inicio_sesion:hover{
+    font-size: 40px;
+    font-weight: lighter;
+    transition: 0.5s;
+    
+   
+  } 
+}
+@media (400px <= width <= 800px) {
+  .header_carrito_compras{
+    color: rgb(10, 10, 10);
+    font-weight: lighter;
+    width: 75%;
+    margin-left: 50px;
+  
+   
+   
+
+  }
+  .header_carrito_compras :hover{
+    font-size: 35px;
+    font-weight: bold;
+    transition: 0.5s;
+    
+   
+  } 
+}
+
+/* zona de novedades Cards */
+.card_contenedor{
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 29px;
+  width: 98%;
+  margin: auto;
+  margin-top: 100px;
+  /* background-color: #f0f0f0; */
+  margin-bottom: 70px;
+}
+.card_img{
+  width: 200px;
+  height: 200px;
+
+  margin:auto;
+
+
+}
+/* desde aqui se modifico para poder agregar los stilos a los precios */
+.card_info{
+ display: flex;
+  align-items: center;
+  margin: 10px;
+  width: 90px;
+  height: 30px;
+  justify-content:flex-end; 
+  
+}
+.card_name{
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  width: 200px;
+  height: 80px;
+  font-weight: lighter;
+  justify-content: center;
+}
+.card_logo_bbva{
+  width: 70px;
+}
+.contenedor_precio_logo{
+  display: flex;
+  height: 30px;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+/* termino estilos a los precios */
+/* .card_buton{
+  display: flex;
+  justify-content: center; 
+ align-items: center;
+  margin: 10px;
+  border: solid 1px black;
+  width: 200px;
+  height: 40px;
+  background-color: #a4b6bc;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  /* align-items: center;
+  margin: 10px;
+  width: 200px;
+  height: 50px;
+  background-color: #00bfff;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer; */
+/* } */ 
+
+.boton_compra{
+ 
+  width: 200px;
+  height: 40px;
+  background-color: #009fe3;
+  border-radius: 10px;
+  margin-top: 10px;
+  display: flex ;
+  justify-content: center;
+  margin-left: 10px;
+}
+.boton_compra:hover{
+  /* background-color: rgb(73, 203, 30); */
+  background-color: #0039a6;
+  color: white;
+  transition: 0.5s;
+
+} 
+ 
+/* transition del carrucel infinito */
+@keyframes scroll {
+  0%{
+    transform: translateX(0);
+  }
+  100%{
+    transform: translateX(calc(-400px * 5 - 0.5rem * 10));
+  }
+}
+
+.animate-scroll {
+  animation: scroll 10s linear infinite;
+ 
+}
+/* fin del carrucel infinito */
+
+/* Carrucel hecho con libreria de react */
+.carru{
+  width: 100%;
+  margin: auto;
+  z-index: -1;
+
+  background-size: cover;
+  margin-top: 125px;
+  border-radius: 10px;
+
+  /* Aqui lo que pasaba era que cuando hacia modo celular el carrucel no se escondia cuando activava el menu ambuguesa por eso se le puso un z-index -1 y en modo celular tenga una position relative y con esto ya desaparece al poner el menu ambuguesa */
+}
+@media (400px <= width <= 800px){
+  .carru{
+    position: relative;
+   
+  }
+  /* responsive de marcas asociadas */
+  .marca_asociada{
+    font-size: 20px;
+    display: flex;
+    text-align: center;
+    color: #0039a6;
+  }
+}
+/* inicio de carrucel infinito */
+.slider{
+  width: 90vw;
+  height: auto;
+  margin: auto;
+  overflow: hidden;
+}
+.slider .slide-track{
+  display: flex;
+  animation: scroll 40s linear infinite;
+  -webkit-animation: scroll 40s linear infinite;
+  width: calc(200px * 20 + 0.5rem * 10);
+  margin-top: 60px;
+}
+.slider .slide{
+  width: 200px;
+
+}
+.slider .slide img{
+  width: 100%;
+  
+}
+@keyframes scroll {
+  0%{
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100%{
+    -webkit-transform: translateX(calc(-200px * 10));
+    transform: translateX(calc(-200px * 10));
+  }
+}
+
+/* zona de galeria 
+he dado un paddin de 5px a las imagenes para que no se peguen a los bordes y en general los ppading son para que haya una separacion tambien en las imagenes
+*/
+.imagen_galeria{
+  width: 100%;
+  padding: 5px;
+  border-radius: 30px;
+
+
+
+}
+
+/* aqui le puse un flex-wrap a wrap ya que por defecto viene en nowrap y lo que hace es que siempre intente encajar las imagenes en ,la misma fila */
+.row_row{
+  display: flex;
+  padding: 5px;
+  flex-wrap: wrap;
+}
+.columna{
+  flex:25%;
+  padding: 5px;
+ 
+}
+
+
+/* aqui le puse un media query para que cuando el ancho de la pantalla sea menor a 800px se pongan 2 imagenes por fila y cuando sea menor a 600px se ponga una imagen por fila  adicional :
+La propiedad CSS `flex` es una abreviatura de tres propiedades: `flex-grow`, `flex-shrink`, y `flex-basis`. Estas tres propiedades se utilizan para controlar cómo un elemento se expande y se contrae para llenar el espacio disponible en un contenedor de flexbox.
+
+Cuando se utiliza `flex` con un solo número, como `flex: 25%`, `flex: 50%`, o `flex: 100%` en tu código, se está estableciendo el valor de `flex-basis`. `flex-basis` define el tamaño inicial de un elemento antes de que se distribuya el espacio restante.
+
+Por ejemplo, `flex: 25%` hace que el elemento ocupe inicialmente el 25% del espacio total del contenedor. Luego, el espacio restante se distribuye entre los elementos según sus valores `flex-grow` y `flex-shrink`.
+
+En tu código, estás utilizando media queries para cambiar el valor de `flex-basis` de los elementos con la clase `.columna` en diferentes anchos de pantalla. Esto hace que los elementos se expandan para ocupar más espacio en pantallas más pequeñas, lo que puede ser útil para hacer que tu diseño sea responsive.*/
+@media (400px <= width <= 800px){
+  .columna{
+    flex: 50%;
+  }
+}
+
+@media (400px <= width <= 600px){
+  .columna{
+    flex: 100%;
+  }
+}
+.contenedor_de_galeria{
+  width: 70%;
+  margin: auto;
+  margin-top: 120px;
+}
+
+/* zona carrucel de zona gamer */
+.carrucel_gamer2{
+  width: 100%;
+  margin: auto;
+  z-index: -1;
+  background-size: cover;
+
+}
+.carru_gamer2{
+  width: 100%;
+ 
+  z-index: -1;
+  background-size: cover;
+  margin-top: 125px;
+  
+  
+}
+/*ZOna especificaciones de la zona gamer */
+
+.zona_especificaciones{
+  width: 100%;
+  margin: auto;
+  margin-top: 160px;
+ 
+  display: flex;
+  flex-wrap: wrap;
+
+}
+.tamaño_img_especificaciones{
+  width: 600px;
+  height: 500px;
+}
+.boton_de_whatsapp{
+  width: 200px;
+  height: 40px;
+  background-color: #06e89c;
+  border-radius: 10px;
+  margin-top: 10px;
+  display: flex ;
+  justify-content: center;
+  
+}
+.boton_de_whatsapp:hover{
+  /* background-color: rgb(73, 203, 30); */
+  background-color: #078144;
+  color: white;
+  transition: 0.5s;
+
 }

@@ -96,6 +96,33 @@ export const Cart = () => {
 </div>
   )
 }
+
+//otro 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //     <div>
 //       <h1>Carrito</h1>
 //       <table>

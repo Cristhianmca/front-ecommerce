@@ -8,11 +8,13 @@
   margin: 0;
   padding: 0;
 }
-body {
+.contenedor_login {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #175966;
+  
 }
 
 .login-box {
@@ -21,7 +23,7 @@ body {
   height: 410px;
   background-image: radial-gradient(circle at 16.69% 2.42%, #00a6af 0, #008b99 16.67%, #0f6e7c 33.33%, #1c4e5a 50%, #1c3138 66.67%, #15191b 83.33%, #050000 100%);
   color: #fff;
-  border-radius: px;
+  border-radius:10px;
 }
 
 .login-box h1 {

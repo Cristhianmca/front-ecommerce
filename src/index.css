@@ -21,68 +21,7 @@
   padding: 0;
 }
 
-/* inicio cesar */
-.sliderC-container{
-  margin: 0 ;
-  margin-top: 50px;
-  /* border: solid red; */
 
-}
-.containerZonaSaltos{
-  display: flex;
-
-  cursor:grab;
-  width: 100%;
-  column-gap: 15px;
-  /* border: solid blue; */
-}
-
-.sub-zonaSaltos div img{
-  width: 100%;
-  height: 300px;
-  cursor: grab;
-  /* pointer-events: none; */
-  /* border: solid rgb(14, 14, 196); */
-}
-/* .animated{
-  width: 150px;
-  border: solid red;
-} */
-
-.sub-zonaSaltos img:hover{
-  border:solid 7px rgb(255, 7, 230);
-  animation: border-move 5s infinite;
-  width: 110%;
-
-} 
-
-@keyframes border-move {
-  0% { border-color: rgb(2, 253, 245); }
-  25% { border-color: rgb(81, 250, 8); }
-  50% { border-color: rgb(222, 12, 241); }
-  75% { border-color: rgb(8, 249, 233); }
-  100% { border-color: rgb(237, 67, 5); }
-  100% { border-color: rgb(41, 11, 239); }
-}
-
-
-
-/* --------texto---------  */
-.sliderC-container p {
-  color:rgb(22, 230, 230);
-  font-size: 20px;
-  text-align: center;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  padding: 10px 0px 10px 0px;
-  /* border: solid red; */
-}
-
-.sliderC-container p:hover{
-  color: greenyellow;
-  font-size: 25px;
-}
-
-/* termino de cesar */
 
 
 
@@ -162,17 +101,20 @@ body{
 /* zona de novedades Cards */
 .card_contenedor{
   display: flex; 
+  
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 29px;
-  width: 98%;
+  width: 90%;
   margin: auto;
   margin-top: 100px;
   /* background-color: #f0f0f0; */
   margin-bottom: 70px;
 }
 .card_img{
+
+ 
   width: 200px;
   height: 200px;
 
@@ -182,6 +124,7 @@ body{
 }
 /* desde aqui se modifico para poder agregar los stilos a los precios */
 .card_info{
+  
  display: flex;
   align-items: center;
   margin: 10px;
@@ -203,6 +146,7 @@ body{
   width: 70px;
 }
 .contenedor_precio_logo{
+ 
   display: flex;
   height: 30px;
   align-items: center;
@@ -239,8 +183,9 @@ body{
   background-color: #009fe3;
   border-radius: 10px;
   margin-top: 10px;
-  display: flex ;
-  justify-content: center;
+  
+
+
   margin-left: 10px;
 }
 .boton_compra:hover{
