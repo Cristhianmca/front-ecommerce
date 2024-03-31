@@ -77,7 +77,7 @@ export const App = () => {
             <h2 className="card_name">{product.name} </h2>
               </picture>
               <div className="pt-5">
-                <h2>{product.name}</h2>
+                
                 <p>{}</p>
                 <div className="contenedor_precio_logo  ">
                     <img
