@@ -8,6 +8,7 @@ import { Login } from "./pages/login/login";
 import "./index.css";
 import { Order } from "./pages/order/order";
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -29,6 +30,9 @@ const router = createBrowserRouter([
     path: "/order",
     element: <Order />,
   },
+
+
+
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

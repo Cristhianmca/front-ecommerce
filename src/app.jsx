@@ -60,12 +60,7 @@ export const App = () => {
 
       <div className="flex justify-between">
         <h1>Productos</h1>
-        <Link
-          to="cart"
-          className="px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm text-gray-900"
-        >
-          Carrito de compras
-        </Link>
+        
       </div>
       <div className="card_contenedor">
         {products.length > 0 ? (

@@ -8,11 +8,10 @@ export default {
     extend: {
 
       backgroundImage: {
-        "open-menu": "url(./assets/menu.svg)",
-        "close-menu": "url(./assets/close.svg)",
+        "open-menu": "url(https://i.postimg.cc/HsMywS9N/menu.png)",
+        "close-menu": "url(https://i.postimg.cc/HWRM7GX5/cerrar.png)",
         "bbva-logo": "url(./cristhian/bbva.svg))",
-        "img-fondo": "(./assets/photo_2023-11-06_16-34-47.jpg)",
-        "img-fondo2": "(./assets/fondoanime.jpg);",
+       
       }
     },
   },

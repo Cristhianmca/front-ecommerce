@@ -3,6 +3,9 @@ import { isAuthenticated } from "../../helpers/auth";
 import {getUserProfile,getClientProfileByUserId} from '../../services/auth_services';
 import { useState } from "react";
 
+import './order.css'
+
+
 export const Order = () => {
   const [firstName,setFirstName] = useState('')
   const [lastName,setLastName] = useState('')
@@ -31,19 +34,24 @@ export const Order = () => {
 
   return(
     <>
-    <h1>Confirmar Pedido</h1>
-    <h2>Datos del Usuario</h2>
-    <form>
-        Nombre : <input type="text" name="firstName" value={firstName}/>
-        Apellidos: <input type="text" name="lastName" value={lastName}/>
-        Email :<input type="text" name="email" value={email}/>
+    
+    <h2 className="datos_usuario">Datos del Usuario</h2>
+    <form className="formu">
+        Nombre : <input className="nombre" type="text" name="firstName" value={firstName}/>
+        Apellidos: <input className="apellido" type="text" name="lastName" value={lastName}/>
+        Email :<input className="email" type="text" name="email" value={email}/>
     </form>
-    <h2>Datos del Cliente</h2>
-    <form>
-        Dirección : <input type="text" name="address" value={address}/>
-        Telefono : <input type="text" name="phone" value={phone}/>
+    <h2 className="datos_cliente">Datos del Cliente</h2>
+    <form className="formu2">
+        Dirección : <input className="direccion" type="text" name="address" value={address}/>
+        Telefono : <input className="telefono" type="text" name="phone" value={phone}/>
+      
+                
+                    <i className="">Confirmar pedido</i>
+                    
+                 
     </form>
-
+    
     </>
   )
 };
