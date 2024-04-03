@@ -5,6 +5,8 @@ import HeaderComputo from "./pages/header/header"
 import Carru from "./pages/carrucel/carrucel";
 import Slider from "./pages/carrucel/slider";
 import './index.css'
+import Categorias from "./pages/categorias/categorias";
+
 
 export const App = () => {
 
@@ -55,6 +57,7 @@ export const App = () => {
     <div>
       <HeaderComputo/>
       <Carru/>
+      <Categorias/>
     
       
 
@@ -120,6 +123,7 @@ export const App = () => {
         )}
       </div>
       <Slider/>
+      
     </div>
     
   );

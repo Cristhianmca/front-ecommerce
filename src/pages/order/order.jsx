@@ -1,4 +1,4 @@
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { isAuthenticated } from "../../helpers/auth";
 import {getUserProfile,getClientProfileByUserId} from '../../services/auth_services';
 import { useState } from "react";
@@ -46,8 +46,9 @@ export const Order = () => {
         Dirección : <input className="direccion" type="text" name="address" value={address}/>
         Telefono : <input className="telefono" type="text" name="phone" value={phone}/>
       
-                
-                    <i className="">Confirmar pedido</i>
+              <Link to="/Pedido" className="btn_confirmar_pedido">               
+                    <button className="">Confirmar pedido</button>
+              </Link>
                     
                  
     </form>

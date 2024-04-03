@@ -5,8 +5,8 @@ import { App } from "./app";
 import { Cart } from "./pages/cart/cart";
 import { Protected } from "./pages/protected/protected";
 import { Login } from "./pages/login/login";
-import "./index.css";
 import { Order } from "./pages/order/order";
+import { Pedido } from "./pages/pedido/Pedido";
 
 
 const router = createBrowserRouter([
@@ -29,6 +29,11 @@ const router = createBrowserRouter([
   {
     path: "/order",
     element: <Order />,
+  },
+
+  {
+    path: "/pedido",
+    element: <Pedido />,
   },
 
 
