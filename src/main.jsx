@@ -6,8 +6,7 @@ import { Cart } from "./pages/cart/cart";
 import { Protected } from "./pages/protected/protected";
 import { Login } from "./pages/login/login";
 import { Order } from "./pages/order/order";
-import { Pedido } from "./pages/pedido/Pedido";
-
+import Pedido from "./pages/pedido/Pedido.jsx";
 
 const router = createBrowserRouter([
   {
