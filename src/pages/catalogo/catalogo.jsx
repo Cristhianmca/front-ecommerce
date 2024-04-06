@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './catalogo.css';
+import { Link } from 'react-router-dom';
 
 function Catalogo() {
   const [categorias, setCategorias] = useState([]);
@@ -106,7 +107,7 @@ function Catalogo() {
   };
 
   return (
-    <div className="container">
+    <div className="container_catalogo">
       <div className="sidebar">
         <h2>Categorías</h2>
         <ul>
@@ -120,7 +121,7 @@ function Catalogo() {
         <ul>
           {marcas.map((marca) => (
             <li key={marca.id}>
-              <button onClick={() => { handleMarcaSeleccionada(marca); }}>{marca.name}</button>
+              <button  onClick={() => { handleMarcaSeleccionada(marca); }}>{marca.name}</button>
             </li>
           ))}
         </ul>
@@ -129,17 +130,16 @@ function Catalogo() {
         <h2 className='m-auto'>Productos</h2>
         <div className="productos">
           {productosFiltrados.map((producto) => (
-            <div key={producto.id} className="producto">
-              <img src={producto.image} alt={producto.name} />
-              <p className="nombre-producto">{producto.name}</p>
-              <p className="precio">S/. {producto.price}</p>
-              <button className="button-add-to-cart" onClick={() => handleAddToCart(producto)}>
-                {addedToCart[producto.id] && (
-                  <span role="img" aria-label="check">✅ Producto Agregado</span>
-                )}
-                {!addedToCart[producto.id] && 'Añadir al carrito'}
-              </button>
-            </div>
+            
+              <div key={producto.id} className="producto">
+                <img src={producto.image} alt={producto.name} />
+                <Link to={`/informacion/${producto.id}`}>{producto.name}</Link>
+                <p className="precio">S/. {producto.price}</p>
+                <button className="button-add-to-cart" onClick={() => handleAddToCart(producto)}>
+                  {addedToCart[producto.id] ? <span role="img" aria-label="check">✅ Producto Agregado</span> : 'Añadir al carrito'}
+                </button>
+              </div>
+           
           ))}
         </div>
       </div>

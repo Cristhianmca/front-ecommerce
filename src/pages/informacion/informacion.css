@@ -1,0 +1,45 @@
+.container_info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 100px;
+  }
+  
+  .infoContainer_info {
+    max-width: 1100px;
+  }
+  
+  .titlePriceContainer_info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .imageContainer_info {
+    margin-right: 20px;
+  }
+  
+  .image_info {
+    width: 500px;
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  .titlePrice_info {
+    flex-grow: 1;
+  }
+  
+  .title_info {
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+  
+  .price_info {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .description_info {
+    font-size: 16px;
+  }

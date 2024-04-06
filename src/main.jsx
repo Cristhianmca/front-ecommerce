@@ -8,6 +8,7 @@ import { Login } from "./pages/login/login";
 import { Order } from "./pages/order/order";
 import Pedido from "./pages/pedido/Pedido.jsx";
 import { Register } from "./pages/register/register.jsx";
+import  Informacion from "./pages/informacion/informacion.jsx";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
     element: <Register />,
   },
 
+  {
+    path: "/informacion/:id",
+    element: <Informacion />,
+  },
 
 
 ]);
