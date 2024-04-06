@@ -5,7 +5,8 @@ import HeaderComputo from "./pages/header/header"
 import Carru from "./pages/carrucel/carrucel";
 import Slider from "./pages/carrucel/slider";
 import './index.css'
-import Categorias from "./pages/categorias/categorias";
+
+import Catalogo from "./pages/catalogo/catalogo";
 
 
 export const App = () => {
@@ -57,74 +58,74 @@ export const App = () => {
     <div>
       <HeaderComputo/>
       <Carru/>
-      <Categorias/>
-    
-      
-
-      <div className="flex justify-between">
-        <h1>Productos</h1>
-        
-      </div>
-      <div className="card_contenedor">
-        {products.length > 0 ? (
-          products.map((product) => (
-            <div key={product.id} className=" bg-white border-2 rounded-md ">
-              <picture className="overlay hover:translate-y-2.5 hover:transition-all hover:rounded-md text-center">
-              <img className="card_img" src={product.image} alt="" />
-
-            <h2 className="card_name">{product.name} </h2>
-              </picture>
-              <div className="pt-5">
-                
-                <p>{}</p>
-                <div className="contenedor_precio_logo  ">
-                    <img
-                      className="card_logo_bbva"
-                      src="https://i.postimg.cc/1tzLVnM4/Post-de-instagram-de-venta-de-tecnolog-a-morado-con-azul-11.png"
-                      alt=""
-                    />
-                    <p className="card_info text-[#0039a6] font-bold ">
-                      {product.price}
-                    </p>
-                  </div>
-                  <div className="contenedor_precio_logo ">
-                    <del className=" text-slate-400 font-bold">
-                      {" "}
-                      {product.price}{" "}
-                    </del>
-                    <p className="card_info font-bold ">{product.price*1.2}</p>
-                  </div>
-                  <div className="contenedor_precio_logo ">
-                    <img
-                      className="card_logo_bbva"
-                      src="https://i.postimg.cc/Y9y6DD9b/11.png"
-                      alt=""
-                    />
-
-                    <p className="card_info text-[#3bc667] font-bold ">
-                      {product.price}
-                    </p>
-                  </div>
-                <button
-                  type="button"
-                  onClick={() => handleAddToCart(product)}
-                  className="boton_compra flex items-center"
-                >
-                 <p className="text-white font-bold" target="_blank" href="">
-                      Agregar
-                      <i class="bi bi-cart4"></i>
-                    </p>
-                </button>
-              </div>
-            </div>
-          ))
-        ) : (
-          <p>No hay productos</p>
-        )}
-      </div>
+      <Catalogo />
       <Slider/>
       
     </div>
     
   );
 };
+
+
+
+{/* <div className="flex justify-between">
+<h1>Productos</h1>
+
+</div>
+<div className="card_contenedor">
+{products.length > 0 ? (
+  products.map((product) => (
+    <div key={product.id} className=" bg-white border-2 rounded-md ">
+      <picture className="overlay hover:translate-y-2.5 hover:transition-all hover:rounded-md text-center">
+      <img className="card_img" src={product.image} alt="" />
+
+    <h2 className="card_name">{product.name} </h2>
+      </picture>
+      <div className="pt-5">
+        
+        <p>{}</p>
+        <div className="contenedor_precio_logo  ">
+            <img
+              className="card_logo_bbva"
+              src="https://i.postimg.cc/1tzLVnM4/Post-de-instagram-de-venta-de-tecnolog-a-morado-con-azul-11.png"
+              alt=""
+            />
+            <p className="card_info text-[#0039a6] font-bold ">
+              {product.price}
+            </p>
+          </div>
+          <div className="contenedor_precio_logo ">
+            <del className=" text-slate-400 font-bold">
+              {" "}
+              {product.price}{" "}
+            </del>
+            <p className="card_info font-bold ">{product.price*1.2}</p>
+          </div>
+          <div className="contenedor_precio_logo ">
+            <img
+              className="card_logo_bbva"
+              src="https://i.postimg.cc/Y9y6DD9b/11.png"
+              alt=""
+            />
+
+            <p className="card_info text-[#3bc667] font-bold ">
+              {product.price}
+            </p>
+          </div>
+        <button
+          type="button"
+          onClick={() => handleAddToCart(product)}
+          className="boton_compra flex items-center"
+        >
+         <p className="text-white font-bold" target="_blank" href="">
+              Agregar
+              <i class="bi bi-cart4"></i>
+            </p>
+        </button>
+      </div>
+    </div>
+  ))
+) : (
+  <p>No hay productos</p>
+)}
+</div> */}

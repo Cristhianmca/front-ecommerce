@@ -1,0 +1,108 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+}
+
+.sidebar button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ddd;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar button:hover {
+    background-color: #ccc;
+}
+
+.main-content {
+    flex-grow: 1;
+}
+
+.productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.producto {
+    margin: 10px;
+    padding: 10px;
+    width: 200px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    position: relative;
+    display: flex; /* Utilizamos flexbox */
+    flex-direction: column; /* Alineamos los elementos verticalmente */
+    justify-content: space-between; /* Distribuimos los elementos de forma equitativa */
+    height: 390px;
+}
+
+.producto:hover {
+    transform: translateY(-5px);
+}
+
+.producto img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px 5px 0 0;
+}
+
+.nombre-producto {
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: auto; /* Ajustamos el margen inferior para que el precio se alinee al fondo */
+    text-align: center;
+    overflow: hidden;
+    max-height: 90px;
+}
+
+.precio {
+    font-size: 16px;
+    font-weight: bold;
+    color: #060805;
+    text-align: center;
+}
+
+.button-add-to-cart {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.button-add-to-cart:hover {
+    background-color: #45a049;
+}
