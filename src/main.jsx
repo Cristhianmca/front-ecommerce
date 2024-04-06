@@ -7,6 +7,7 @@ import { Protected } from "./pages/protected/protected";
 import { Login } from "./pages/login/login";
 import { Order } from "./pages/order/order";
 import Pedido from "./pages/pedido/Pedido.jsx";
+import { Register } from "./pages/register/register.jsx";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,11 @@ const router = createBrowserRouter([
   {
     path: "/pedido",
     element: <Pedido />,
+  },
+
+  {
+    path: "/register",
+    element: <Register />,
   },
 
 

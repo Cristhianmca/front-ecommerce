@@ -1,0 +1,82 @@
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #e6e6e6, #ffffff); /* Fondo degradado minimalista */
+  }
+  
+  .login-form {
+    background-color: #ffffff;
+    padding: 40px; /* Ajusta el padding para hacer el formulario más cuadrado */
+    border-radius: 20px; /* Hace los bordes más redondeados */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Añade una sombra suave */
+    max-width: 600px; /* Ajusta el ancho máximo del formulario */
+    width: 100%; /* Hace que el formulario ocupe todo el ancho disponible */
+    margin: 0 auto; /* Centra el formulario horizontalmente */
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .form-column {
+    flex: 0 0 48%; /* Establece el ancho de la columna al 48% */
+  }
+  
+  .form-group {
+    margin-bottom: 20px; /* Incrementa el espacio entre los elementos del formulario */
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+  }
+  
+  .boton_registrado_exitoso {
+    width: 80%;
+    padding: 12px;
+    border: none;
+    background-color: #4caf50; /* Color de fondo del botón */
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .boton_registrado_exitoso button:not(:hover) {
+    background-color: #4caf50; /* Color de fondo del botón */
+  }
+  
+  .boton_registrado_exitoso button:hover {
+    background-color: #45a049; /* Color de fondo del botón en hover */
+  }
+  
+  .animate-pulse {
+    animation: pulse 1.5s infinite alternate;
+  }
+  
+  @keyframes pulse {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.5;
+    }
+  }
