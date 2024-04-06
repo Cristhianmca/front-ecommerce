@@ -1,73 +1,83 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './catalogo.css'; // Importar el archivo CSS
+import './catalogo.css';
 
 function Catalogo() {
-  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('productos');
-  const [categories, setCategorias] = useState([]);
-  const [products, setProductos] = useState([]);
+  const [categorias, setCategorias] = useState([]);
   const [marcas, setMarcas] = useState([]);
-  const [addedToCart, setAddedToCart] = useState({}); // Estado para los productos agregados al carrito
+  const [productos, setProductos] = useState([]);
+  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
+  const [marcaSeleccionada, setMarcaSeleccionada] = useState(null);
+  const [productosFiltrados, setProductosFiltrados] = useState([]);
+  const [addedToCart, setAddedToCart] = useState({});
 
   useEffect(() => {
     obtenerCategorias();
-    obtenerProductos();
     obtenerMarcas();
+    obtenerProductos();
   }, []);
+
+  useEffect(() => {
+    filtrarProductos();
+  }, [categoriaSeleccionada, marcaSeleccionada, productos]);
 
   const obtenerCategorias = async () => {
     try {
-      const response = await axios.get('http://127.0.0.1:8000/api/categories');
+      const response = await axios.get('http://localhost:8000/api/categories');
       setCategorias(response.data);
-      
     } catch (error) {
       console.error('Error al obtener las categorías:', error);
     }
   };
 
-  const obtenerProductos = async (categoria = null, marca = null) => {
-    let url = 'http://127.0.0.1:8000/api/products';
-    if (categoria !== null) {
-      url += `?category=${categoria.id}`;
-    }
-    if (marca !== null) {
-      url += marca === null ? '' : (url.includes('?') ? '&' : '?') + `marca=${marca.id}`;
-    }
-    try {
-      const response = await axios.get(url);
-      setProductos([...response.data]); // Actualizar productos en el estado
-    } catch (error) {
-      console.error('Error al obtener los productos:', error);
-    }
-  };
-
   const obtenerMarcas = async () => {
     try {
-      const response = await axios.get('http://127.0.0.1:8000/api/marca');
+      const response = await axios.get('http://localhost:8000/api/marca');
       setMarcas(response.data);
     } catch (error) {
       console.error('Error al obtener las marcas:', error);
     }
   };
 
+  const obtenerProductos = async () => {
+    try {
+      const response = await axios.get('http://localhost:8000/api/products');
+      setProductos(response.data);
+    } catch (error) {
+      console.error('Error al obtener los productos:', error);
+    }
+  };
+
   const handleCategoriaSeleccionada = (categoria) => {
-    obtenerProductos(categoria);
     setCategoriaSeleccionada(categoria);
+    setMarcaSeleccionada(null);
   };
 
   const handleMarcaSeleccionada = (marca) => {
-    obtenerProductos(null, marca);
-    setCategoriaSeleccionada(marca);
+    setMarcaSeleccionada(marca);
+    setCategoriaSeleccionada(null);
   };
 
-  const handleAddToCart = (product) => {
+  const filtrarProductos = () => {
+    if (categoriaSeleccionada && marcaSeleccionada) {
+      setProductosFiltrados(productos.filter(producto => producto.category === categoriaSeleccionada.id && producto.marca === marcaSeleccionada.id));
+    } else if (categoriaSeleccionada) {
+      setProductosFiltrados(productos.filter(producto => producto.category === categoriaSeleccionada.id));
+    } else if (marcaSeleccionada) {
+      setProductosFiltrados(productos.filter(producto => producto.marca === marcaSeleccionada.id));
+    } else {
+      setProductosFiltrados(productos);
+    }
+  };
+
+  const handleAddToCart = (producto) => {
     const cart = localStorage.getItem("cart") || "[]";
     const cartParsed = JSON.parse(cart);
-    const productInCart = cartParsed.find((item) => item.id === product.id);
+    const productInCart = cartParsed.find((item) => item.id === producto.id);
 
     if (productInCart) {
       const newCart = cartParsed.map((item) => {
-        if (item.id === product.id) {
+        if (item.id === producto.id) {
           return {
             ...item,
             quantity: item.quantity + 1,
@@ -79,30 +89,30 @@ function Catalogo() {
       });
 
       localStorage.setItem("cart", JSON.stringify(newCart));
-      setAddedToCart(prevState => ({ ...prevState, [product.id]: true })); // Actualizar el estado a true para el producto actual
-      setTimeout(() => setAddedToCart(prevState => ({ ...prevState, [product.id]: false })), 2000); // Reiniciar el estado después de 2 segundos
-      return;
+    } else {
+      const newProduct = {
+        ...producto,
+        quantity: 1,
+        total: parseFloat(producto.price),
+      };
+
+      localStorage.setItem("cart", JSON.stringify([...cartParsed, newProduct]));
     }
 
-    const newProduct = {
-      ...product,
-      quantity: 1,
-      total: parseFloat(product.price),
-    };
-
-    localStorage.setItem("cart", JSON.stringify([...cartParsed, newProduct]));
-    setAddedToCart(prevState => ({ ...prevState, [product.id]: true })); // Actualizar el estado a true para el producto actual
-    setTimeout(() => setAddedToCart(prevState => ({ ...prevState, [product.id]: false })), 2000); // Reiniciar el estado después de 2 segundos
+    setAddedToCart(prevState => ({ ...prevState, [producto.id]: true }));
+    setTimeout(() => {
+      setAddedToCart(prevState => ({ ...prevState, [producto.id]: false }));
+    }, 2000);
   };
 
   return (
     <div className="container">
       <div className="sidebar">
-        <h2>Categorias</h2>
+        <h2>Categorías</h2>
         <ul>
-          {categories.map((categoria) => (
+          {categorias.map((categoria) => (
             <li key={categoria.id}>
-              <button onClick={() => handleCategoriaSeleccionada(categoria.id + categoria.name)}>{categoria.name}</button>
+              <button onClick={() => handleCategoriaSeleccionada(categoria)}>{categoria.name}</button>
             </li>
           ))}
         </ul>
@@ -110,22 +120,24 @@ function Catalogo() {
         <ul>
           {marcas.map((marca) => (
             <li key={marca.id}>
-              <button onClick={() => handleMarcaSeleccionada(marca.name)}>{marca.name}</button>
+              <button onClick={() => { handleMarcaSeleccionada(marca); }}>{marca.name}</button>
             </li>
           ))}
         </ul>
       </div>
       <div className="main-content">
-        <h2>{categoriaSeleccionada === 'productos' ? 'Productos' : categoriaSeleccionada}</h2>
+        <h2 className='m-auto'>Productos</h2>
         <div className="productos">
-          {products.map((product) => (
-            <div key={product.id} className="producto">
-              <img src={product.image} alt={product.name} />
-              <p className="nombre-producto">{product.name}</p>
-              <p className="precio">S/. {product.price}</p>
-              <button className="button-add-to-cart" onClick={() => handleAddToCart(product)}>
-                {addedToCart[product.id] && <span>&#10003; Se agregó al carrito 😊</span>}
-                {!addedToCart[product.id] && 'Agregar al carrito'}
+          {productosFiltrados.map((producto) => (
+            <div key={producto.id} className="producto">
+              <img src={producto.image} alt={producto.name} />
+              <p className="nombre-producto">{producto.name}</p>
+              <p className="precio">S/. {producto.price}</p>
+              <button className="button-add-to-cart" onClick={() => handleAddToCart(producto)}>
+                {addedToCart[producto.id] && (
+                  <span role="img" aria-label="check">✅ Producto Agregado</span>
+                )}
+                {!addedToCart[producto.id] && 'Añadir al carrito'}
               </button>
             </div>
           ))}
