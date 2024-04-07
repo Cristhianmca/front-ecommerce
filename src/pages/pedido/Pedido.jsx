@@ -76,7 +76,7 @@ const Pedido = () => {
           <li>
             <a href="index.html">Home</a>
           </li>
-          <li>Cart</li>
+          <li className="carrito_compras">CONFIRMA TU PEDIDO </li>
         </ul>
         <div className="page-styling">
           <div className="woocommerce prod-litems section-list">
@@ -89,11 +89,9 @@ const Pedido = () => {
                     </a>
                     <div className="prod-li-cont">
                       <div className="prod-li-ttl-wrap">
-                        <p>
-                          <a href="#">{product.category}</a>
-                        </p>
+                        
                         <h3>
-                          <a href={`/producto/${product.id}`}>{product.name}</a>
+                          <a className="nombre_carrito" href={`/producto/${product.id}`}>{product.name}</a>
                         </h3>
                       </div>
                       <div className="prod-li-prices">
@@ -106,7 +104,7 @@ const Pedido = () => {
                             <a href="#" className="qnt-plus prod-li-plus">
                               <i className="icon ion-arrow-up-b"></i>
                             </a>
-                            <input className="input_quantity"
+                            <input className="producto_cantidad"
                               type="text"
                               name="cantidad"
                               value  ={product.quantity}
@@ -145,20 +143,22 @@ const Pedido = () => {
 
           <div className="cart-actions">
             <div className="coupon">
-              {/* <button
+              <button
                 onClick={handleDeleteProduct}
                 className="checkout-button button"
               >
-                Eliminar Carrito
-              </button> */}
+               
+              </button> 
             </div>
             <div className="cart-collaterals">
-              <Link to="/order" className="checkout-button button">
+              {/* <Link to="/order" className="checkout-button button">
                 Registrar Pedido
-              </Link>
+              </Link> */}
               <div className="order-total">
-                <p className="cart-totals-ttl">Total</p>
+                
+                <button className="mercadopago-button" onClick={handlePayment}>Confirmar Pedido</button>
                 {preferenceId && <Wallet initialization={{ preferenceId }} />}
+                <p className="cart-totals-ttl">Total</p>
                 <p className="cart-totals-val">S/.{cartTotal}</p>
               </div>
               

@@ -21,10 +21,10 @@ export const Cart = () => {
     <div>
       <HeaderComputo/>
     <div className="cont maincont">
-  <h1 className="maincont-ttl">Cart</h1>
+  <h1 className="maincont-ttl">CARRITO DE COMPRAS </h1>
   <ul className="b-crumbs">
     <li><a href="index.html">Home</a></li>
-    <li>Cart</li>
+    <li className="carrito_compras">CARRITO DE COMPRAS</li>
   </ul>
   <div className="page-styling">
     <div className="woocommerce prod-litems section-list">
@@ -37,10 +37,8 @@ export const Cart = () => {
               </a>
               <div className="prod-li-cont">
                 <div className="prod-li-ttl-wrap">
-                  <p>
-                    <a href="#">{product.category}</a>
-                  </p>
-                  <h3><a href={`/producto/${product.id}`}>{product.name}</a></h3>
+                 
+                  <h3><a className="nombre_carrito" href={`/producto/${product.id}`}>{product.name}</a></h3>
                 </div>
                 <div className="prod-li-prices">
                   <div className="prod-li-price-wrap">
@@ -50,7 +48,7 @@ export const Cart = () => {
                   <div className="prod-li-qnt-wrap">
                     <p className="qnt-wrap prod-li-qnt">
                       <a href="#" className="qnt-plus prod-li-plus"><i className="icon ion-arrow-up-b"></i></a>
-                      <input type="text" name="cantidad" value={product.quantity} />
+                      <input className="producto_cantidad" type="text" name="cantidad" value={product.quantity} />
                       <a href="#" className="qnt-minus prod-li-minus"><i className="icon ion-arrow-down-b"></i></a>
                     </p>
                   </div>
@@ -81,10 +79,10 @@ export const Cart = () => {
 
     <div className="cart-actions">
       <div className="coupon">
-        <button onClick={handleDeleteProduct} className="checkout-button button">Eliminar Carrito</button>
+        <button onClick={handleDeleteProduct} className="checkout-button button"></button>
       </div>
       <div className="cart-collaterals">
-        <Link to='/order' className="checkout-button button">Registrar Pedido</Link>
+        <Link to='/order' className="registrar_pedido">Registrar Pedido</Link>
         <div className="order-total">
           <p className="cart-totals-ttl">Total</p>
           <p className="cart-totals-val">S/.{cartTotal}</p>
