@@ -16,4 +16,16 @@
     background-color: #0072b0;
    
   }
+  .cart-totals-val{
+    font-size: 20px;
+    font-weight: bold;
+  }
   
+  .input_quantity{
+    width: 10px;
+    height: 10px;
+    text-align: center;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }

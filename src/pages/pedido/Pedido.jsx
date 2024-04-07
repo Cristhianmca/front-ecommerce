@@ -106,10 +106,10 @@ const Pedido = () => {
                             <a href="#" className="qnt-plus prod-li-plus">
                               <i className="icon ion-arrow-up-b"></i>
                             </a>
-                            <input
+                            <input className="input_quantity"
                               type="text"
                               name="cantidad"
-                              value={product.quantity}
+                              value  ={product.quantity}
                               readOnly
                             />
                             <a href="#" className="qnt-minus prod-li-minus">
@@ -145,12 +145,12 @@ const Pedido = () => {
 
           <div className="cart-actions">
             <div className="coupon">
-              <button
+              {/* <button
                 onClick={handleDeleteProduct}
                 className="checkout-button button"
               >
                 Eliminar Carrito
-              </button>
+              </button> */}
             </div>
             <div className="cart-collaterals">
               <Link to="/order" className="checkout-button button">
@@ -158,10 +158,11 @@ const Pedido = () => {
               </Link>
               <div className="order-total">
                 <p className="cart-totals-ttl">Total</p>
+                {preferenceId && <Wallet initialization={{ preferenceId }} />}
                 <p className="cart-totals-val">S/.{cartTotal}</p>
               </div>
-              <button className="mercadopago-button" onClick={handlePayment}>Confirmar Pedido</button>
-              {preferenceId && <Wallet initialization={{ preferenceId }} />}
+              
+              
             </div>
           </div>
         </div>
