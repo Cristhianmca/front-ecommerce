@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import ReactHtmlParser from 'react-html-parser'; // Importa ReactHtmlParser
 import './informacion.css'; // Importar los estilos CSS
 import HeaderComputo from '../header/header';
 
@@ -25,8 +26,8 @@ function Informacion() {
   }, [id]);
 
   const handleAddToCart = (producto) => {
-    const cart = localStorage.getItem("cart") || "[]";
-    const cartParsed = JSON.parse(cart);
+    const cart = localStorage.getItem("cart") || "[]"; // Obtener el carrito del localStorage
+    const cartParsed = JSON.parse(cart); // Convertir el carrito a un arreglo de objetos
     const productInCart = cartParsed.find((item) => item.id === producto.id); // Buscar si 
 
     if (productInCart) {
@@ -53,7 +54,6 @@ function Informacion() {
       localStorage.setItem("cart", JSON.stringify([...cartParsed, newProduct]));
     }
 
-
     setAddedToCart(true);
     setTimeout(() => {
       setAddedToCart(false);
@@ -64,22 +64,19 @@ function Informacion() {
     }, 2000);
 
     setRedirecting(true);
-setShowModal(true);
-setTimeout(() => {
-  window.location.href = '/cart';
-}, 2000);
-
-
+    setShowModal(true);
+    setTimeout(() => {
+      window.location.href = '/cart';
+    }, 2000);
   };
 
   if (!producto) {
     return <div>Cargando...</div>;
   }
 
-
   return (
     <div className="container_info">
-      <HeaderComputo/>
+      <HeaderComputo />
       <div className="infoContainer_info">
         <div className="titlePriceContainer_info">
           <div className="imageContainer_info">
@@ -87,21 +84,34 @@ setTimeout(() => {
           </div>
           <div className="titlePrice_info">
             <h2 className="title_info">{producto.name}</h2>
-            <p className="price_info">Precio: ${producto.price}</p>
+            <p className="price_info">Precio: S/. {producto.price}</p>
+            <button className="boton_agregar_carrito_info" onClick={() => handleAddToCart(producto)}>
+          {addedToCart ? <span role="img" aria-label="check">✅ Producto Agregado 😊</span> : 'Añadir al carrito'}
+        </button>
+        {redirecting && <div className="redirect-message ">Redirigiendo a la página de carrito...</div>}
+        {showModal && (
+          <div className="modal">
+            <div className="modal-content">
+              <p className=''>Redirigiendo a la página de carrito...</p>
+            </div>
+          </div>
+        )}
+        
           </div>
         </div>
-        <p className="description_info">Descripción: {producto.description}</p>
-        <button className="button-add-to-cart" onClick={() => handleAddToCart(producto)}>
+        {/* Utiliza ReactHtmlParser para mostrar la descripción */}
+        <div className="description_info"> {ReactHtmlParser(producto.description)}</div>
+        <button className="boton_agregar_carrito_info" onClick={() => handleAddToCart(producto)}>
           {addedToCart ? <span role="img" aria-label="check">✅ Producto Agregado 😊</span> : 'Añadir al carrito'}
         </button>
         {redirecting && <div className="redirect-message">Redirigiendo a la página de carrito...</div>}
         {showModal && (
-  <div className="modal">
-    <div className="modal-content">
-      <p>Redirigiendo a la página de carrito...</p>
-    </div>
-  </div>
-)}
+          <div className="modal">
+            <div className="modal-content">
+              <p className=''>Redirigiendo a la página de carrito...</p>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

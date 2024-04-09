@@ -10,6 +10,8 @@ const Pedido = () => {
   const [cart, setCart] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
 
+
+
   useEffect(() => {
     const loadCart = async () => {
       // Cargar el carrito desde el almacenamiento local
@@ -50,9 +52,9 @@ const Pedido = () => {
       console.error("No hay una preferencia de pago válida.");
       return;
     }
-
+  
     // Aquí necesitas pasar tu PUBLIC_KEY de Mercado Pago
-    const publicKey = "TEST-105fc60a-e841-4f13-af4f-358e84cafdab";
+    const publicKey = "TEST-6e8e780b-a354-441d-83f1-76519e828ea5";
     const script = document.createElement("script");
     script.src = "https://www.mercadopago.com.pe/integrations/v1/web-payment-checkout.js";
     script.setAttribute("data-preference-id", preferenceId);
@@ -66,6 +68,8 @@ const Pedido = () => {
     // Lógica a realizar una vez que se carga el script de Mercado Pago
     console.log("Script de Mercado Pago cargado correctamente");
   };
+
+ 
 
   return (
     <div>
@@ -155,12 +159,21 @@ const Pedido = () => {
                 Registrar Pedido
               </Link> */}
               <div className="order-total">
+             
                 
-                <button className="mercadopago-button" onClick={handlePayment}>Confirmar Pedido</button>
-                {preferenceId && <Wallet initialization={{ preferenceId }} />}
+<Wallet initialization={{ preferenceId: '<PREFERENCE_ID>' }} customization={{ texts:{ valueProp: 'smart_option'
+}}} />
+                <button className="mercadopago-button" onClick={handlePayment}>Pagar con Mercado Pago</button>
+                
+<span>(Serás redirigido al sitio de Mercado Pago para completar el pago)</span>
+
+
+                {/* {preferenceId && <Wallet initialization={{ preferenceId }} />} */}
                 <p className="cart-totals-ttl">Total</p>
                 <p className="cart-totals-val">S/.{cartTotal}</p>
               </div>
+
+              
               
               
             </div>

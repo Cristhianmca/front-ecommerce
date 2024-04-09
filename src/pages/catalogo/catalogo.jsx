@@ -11,6 +11,7 @@ function Catalogo() {
   const [marcaSeleccionada, setMarcaSeleccionada] = useState(null);
   const [productosFiltrados, setProductosFiltrados] = useState([]);
   const [addedToCart, setAddedToCart] = useState({});
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     obtenerCategorias();
@@ -20,7 +21,7 @@ function Catalogo() {
 
   useEffect(() => {
     filtrarProductos();
-  }, [categoriaSeleccionada, marcaSeleccionada, productos]);
+  }, [categoriaSeleccionada, marcaSeleccionada, productos, searchTerm]);
 
   const obtenerCategorias = async () => {
     try {
@@ -60,15 +61,21 @@ function Catalogo() {
   };
 
   const filtrarProductos = () => {
-    if (categoriaSeleccionada && marcaSeleccionada) {
-      setProductosFiltrados(productos.filter(producto => producto.category === categoriaSeleccionada.id && producto.marca === marcaSeleccionada.id));
-    } else if (categoriaSeleccionada) {
-      setProductosFiltrados(productos.filter(producto => producto.category === categoriaSeleccionada.id));
-    } else if (marcaSeleccionada) {
-      setProductosFiltrados(productos.filter(producto => producto.marca === marcaSeleccionada.id));
+    let filtered = productos;
+    if (searchTerm) {
+      filtered = productos.filter(producto =>
+        producto.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
     } else {
-      setProductosFiltrados(productos);
+      if (categoriaSeleccionada && marcaSeleccionada) {
+        filtered = productos.filter(producto => producto.category === categoriaSeleccionada.id && producto.marca === marcaSeleccionada.id);
+      } else if (categoriaSeleccionada) {
+        filtered = productos.filter(producto => producto.category === categoriaSeleccionada.id);
+      } else if (marcaSeleccionada) {
+        filtered = productos.filter(producto => producto.marca === marcaSeleccionada.id);
+      }
     }
+    setProductosFiltrados(filtered);
   };
 
   const handleAddToCart = (producto) => {
@@ -128,18 +135,24 @@ function Catalogo() {
       </div>
       <div className="main-content">
         <h2 className='m-auto'>Productos</h2>
+        <input
+          type="text"
+          placeholder="Buscar productos..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
         <div className="productos">
           {productosFiltrados.map((producto) => (
-            
-              <div key={producto.id} className="producto">
-                <img src={producto.image} alt={producto.name} />
-                <Link to={`/informacion/${producto.id}`}>{producto.name}</Link>
-                <p className="precio">S/. {producto.price}</p>
-                <button className="button-add-to-cart" onClick={() => handleAddToCart(producto)}>
-                  {addedToCart[producto.id] ? <span role="img" aria-label="check">✅ Producto Agregado</span> : 'Añadir al carrito'}
-                </button>
-              </div>
-           
+            <div key={producto.id} className="producto">
+              <img src={producto.image} alt={producto.name} />
+              <Link className='catalogo_name' to={`/informacion/${producto.id}`}>{producto.name}</Link>
+              <p className="precio">S/ {parseFloat(producto.price).toLocaleString('es-PE')}</p> {/* Formatear el precio */}
+              <p> {producto.cupon} </p>
+              <p>{producto.price_discount} </p>
+              <button className="button-add-to-cart" onClick={() => handleAddToCart(producto)}>
+                {addedToCart[producto.id] ? <span role="img" aria-label="check">✅ Producto Agregado</span> : 'Añadir al carrito'}
+              </button>
+            </div>
           ))}
         </div>
       </div>
