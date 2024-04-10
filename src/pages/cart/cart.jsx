@@ -63,7 +63,7 @@ export const Cart = () => {
       <div className="cont maincont">
         <h1 className="maincont-ttl">CARRITO DE COMPRAS </h1>
         <ul className="b-crumbs">
-          <li><a href="index.html">Home</a></li>
+          
           <li className="carrito_compras">CARRITO DE COMPRAS</li>
         </ul>
         <div className="page-styling">

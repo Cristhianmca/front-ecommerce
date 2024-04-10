@@ -116,28 +116,29 @@ function Catalogo() {
   return (
     <div className="container_catalogo">
       <div className="sidebar">
-        <h2>Categorías</h2>
-        <ul>
+        <h2 className=' text-center  text-3xl font-bold '>CATEGORIAS</h2>
+        <ul className=''>
           {categorias.map((categoria) => (
             <li key={categoria.id}>
               <button onClick={() => handleCategoriaSeleccionada(categoria)}>{categoria.name}</button>
             </li>
           ))}
         </ul>
-        <h2>Marcas</h2>
+        <h2 className='text-center  text-3xl font-bold' >Marcas</h2>
         <ul>
           {marcas.map((marca) => (
             <li key={marca.id}>
+              <img className='imagen_marca' src={marca.image} alt={marca.name} />
               <button  onClick={() => { handleMarcaSeleccionada(marca); }}>{marca.name}</button>
             </li>
           ))}
         </ul>
       </div>
       <div className="main-content">
-        <h2 className='m-auto'>Productos</h2>
-        <input
+        
+        <input className='buscador  '
           type="text"
-          placeholder="Buscar productos..."
+          placeholder="Buscar productos... "
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />

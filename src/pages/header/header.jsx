@@ -8,14 +8,14 @@ const HeaderComputo = ({ user }) => {
     return (
       //aqui se le agrego la posicion fixed para que la posicion de los elementos sea fija al hacer scrool , un top 0 que asegura que el elemento siempre este en la parte superior de la pagina y un z-50 asegura que el elemento siempre este por encima de los demas elementos de la pagina osea que este superior a cualquier otro contenido de la pagina
       <div className="w-[100%] mx-auto  overflow-hidden border-1  bg-[#009fe3]      border-black fixed top-0 z-50  ">
-        <header>
-          <nav className="flex h-32  justify-between   ">
+        <header className=" h-[90px]  ">
+          <nav className="flex h-16  justify-between   ">
             <Link
               to="/"
               className="w-3/4  text-4xl text-black font-bold   flex items-center "
             >
               <img
-                className=" w-80 h-32 object-cover "
+                className=" w-48 h-30 object-cover "
                 src="https://i.postimg.cc/4yPDpmkf/Deluxecomputer2.png"
                 alt="foto de la empresa"
               />

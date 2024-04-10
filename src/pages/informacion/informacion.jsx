@@ -100,7 +100,14 @@ function Informacion() {
           </div>
         </div>
         {/* Utiliza ReactHtmlParser para mostrar la descripción */}
-        <div className="description_info"> {ReactHtmlParser(producto.description)}</div>
+        <div className='specification flex bg-white  '>
+        <div className="description_info "><h2 className=' font-extrabold text-[20px] mb-5 '>Especificaciones</h2> {ReactHtmlParser( producto.description)}</div>
+        <div className="description_info_2" >
+          
+          { ReactHtmlParser(producto.specifications)}</div>
+        </div>
+        
+        
         <button className="boton_agregar_carrito_info" onClick={() => handleAddToCart(producto)}>
           {addedToCart ? <span role="img" aria-label="check">✅ Producto Agregado 😊</span> : 'Añadir al carrito'}
         </button>

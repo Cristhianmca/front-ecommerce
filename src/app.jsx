@@ -56,7 +56,7 @@ export const App = () => {
 
   return (
     <div>
-      <HeaderComputo/>
+      <HeaderComputo />
       <Carru/>
       <Catalogo />
       <Slider/>
