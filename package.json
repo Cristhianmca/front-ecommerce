@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "vercel-build": "npm install --force && npm run build"
+    "install": "npm install --force",
+  "vercel-build": "npm run install && npm run build"
   },
   "dependencies": {
     "@mercadopago/sdk-react": "^0.0.19",
